@@ -4,7 +4,30 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Create Product</h1>
     </div>
+    @if ($errors->any())
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session()->has('success'))
+        <div class="alert alert-dismissable alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>
+                {!! session()->get('success') !!}
+            </strong>
+        </div>
+    @endif
     <form action="{{ route('product.store') }}" method="post" autocomplete="off" spellcheck="false">
+    @csrf
         <section>
             <div class="row">
                 <div class="col-md-6">
@@ -17,7 +40,8 @@
                             <div class="form-group">
                                 <label for="product_name">Product Name</label>
                                 <input type="text"
-                                       name="product_name"
+                                       name="title"
+                                       value="{{old('title')}}"
                                        id="product_name"
                                        required
                                        placeholder="Product Name"
@@ -25,18 +49,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="product_sku">Product SKU</label>
-                                <input type="text" name="product_sku"
+                                <input type="text" 
+                                       name="sku"
+                                        value="{{old('sku')}}"
                                        id="product_sku"
                                        required
                                        placeholder="Product Name"
                                        class="form-control"></div>
                             <div class="form-group mb-0">
                                 <label for="product_description">Description</label>
-                                <textarea name="product_description"
+                                <textarea name="description"
                                           id="product_description"
                                           required
                                           rows="4"
-                                          class="form-control"></textarea>
+                                          class="form-control">{{old('description')}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -87,12 +113,16 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-lg btn-primary">Save</button>
-            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+            <button type="submit" class="btn btn-lg btn-primary">Save</button>
+            <button type="reset" class="btn btn-secondary btn-lg">Cancel</button>
         </section>
     </form>
 @endsection
 
 @push('page_js')
+    <script>
+        var file_upload_route = "{{ route('file-upload') }}";
+        var _token = {{ csrf_token() }}
+    </script>
     <script type="text/javascript" src="{{ asset('js/product.js') }}"></script>
 @endpush

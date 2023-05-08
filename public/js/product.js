@@ -5,11 +5,12 @@ var indexs = [];
 $(document).ready(function () {
     addVariantTemplate();
     $("#file-upload").dropzone({
-        url: "{{ route('file-upload') }}",
+        url: file_upload_route,
         method: "post",
         addRemoveLinks: true,
         success: function (file, response) {
-            //
+            console.log("File: " + file)
+            console.log("Response: " + response)
         },
         error: function (file, response) {
             //

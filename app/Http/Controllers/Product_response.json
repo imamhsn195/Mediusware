@@ -1,0 +1,62 @@
+{
+    "_token": "0XZ13OnRCVvbVUTEQfwpN6Fye7LTlWzTX8A2ml35",
+    "title": "Product One",
+    "sku": "Product Sku",
+    "description": "Product description",
+    "product_variant": [
+        {
+            "option": "1",
+            "value": ["Red", "Green"]
+        },
+        {
+            "option": "2",
+            "value": ["Small", "Large"]
+        },
+        {
+            "option": "6",
+            "value": ["Clasic", "Modern"]
+        }
+    ],
+    "product_preview": [
+        {
+            "variant": "Red/Small/Clasic/",
+            "price": "100",
+            "stock": "666"
+        },
+        {
+            "variant": "Red/Small/Modern/",
+            "price": "666",
+            "stock": "99"
+        },
+        {
+            "variant": "Red/Large/Clasic/",
+            "price": "66",
+            "stock": "6"
+        },
+        {
+            "variant": "Red/Large/Modern/",
+            "price": "424",
+            "stock": "6"
+        },
+        {
+            "variant": "Green/Small/Clasic/",
+            "price": "6",
+            "stock": "15"
+        },
+        {
+            "variant": "Green/Small/Modern/",
+            "price": "266",
+            "stock": "6"
+        },
+        {
+            "variant": "Green/Large/Clasic/",
+            "price": "652",
+            "stock": "6"
+        },
+        {
+            "variant": "Green/Large/Modern/",
+            "price": "6",
+            "stock": "47"
+        }
+    ]
+}
