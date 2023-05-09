@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "title": "Darius Hancock",
+        "sku": "Id voluptas necessit",
+        "description": "Quo exercitation rer",
+        "created_at": "2023-05-08T14:37:28.000000Z",
+        "updated_at": "2023-05-08T14:37:28.000000Z",
+        "variants": [
+            {
+                "id": 1,
+                "variant": {
+                    "id": 1,
+                    "title": "X",
+                    "description": null,
+                    "created_at": "2023-05-08T14:37:28.000000Z",
+                    "updated_at": "2023-05-08T14:37:28.000000Z"
+                },
+                "variant_id": 1,
+                "product_id": 1,
+                "created_at": "2023-05-08T14:37:28.000000Z",
+                "updated_at": "2023-05-08T14:37:28.000000Z"
+            },
+            {
+                "id": 2,
+                "variant": {
+                    "id": 2,
+                    "title": "L",
+                    "description": null,
+                    "created_at": "2023-05-08T14:37:28.000000Z",
+                    "updated_at": "2023-05-08T14:37:28.000000Z"
+                },
+                "variant_id": 2,
+                "product_id": 1,
+                "created_at": "2023-05-08T14:37:28.000000Z",
+                "updated_at": "2023-05-08T14:37:28.000000Z"
+            }
+        ],
+        "product_variant_prices": [
+            {
+                "id": 1,
+                "product_variant_one": {
+                    "id": 1,
+                    "title": "X",
+                    "description": null,
+                    "created_at": "2023-05-08T14:37:28.000000Z",
+                    "updated_at": "2023-05-08T14:37:28.000000Z"
+                },
+                "product_variant_two": {
+                    "id": 2,
+                    "title": "L",
+                    "description": null,
+                    "created_at": "2023-05-08T14:37:28.000000Z",
+                    "updated_at": "2023-05-08T14:37:28.000000Z"
+                },
+                "product_variant_three": null,
+                "price": 10,
+                "stock": 2,
+                "product_id": 1,
+                "created_at": "2023-05-08T14:37:28.000000Z",
+                "updated_at": "2023-05-08T14:37:28.000000Z"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Sawyer Bonner",
+        "sku": "Mollit veritatis in",
+        "description": "Quo est maxime fuga",
+        "created_at": "2023-05-08T14:41:05.000000Z",
+        "updated_at": "2023-05-08T14:41:05.000000Z",
+        "variants": [
+            {
+                "id": 3,
+                "variant": {
+                    "id": 3,
+                    "title": "df",
+                    "description": null,
+                    "created_at": "2023-05-08T14:41:05.000000Z",
+                    "updated_at": "2023-05-08T14:41:05.000000Z"
+                },
+                "variant_id": 3,
+                "product_id": 2,
+                "created_at": "2023-05-08T14:41:05.000000Z",
+                "updated_at": "2023-05-08T14:41:05.000000Z"
+            }
+        ],
+        "product_variant_prices": [
+            {
+                "id": 2,
+                "product_variant_one": {
+                    "id": 3,
+                    "title": "df",
+                    "description": null,
+                    "created_at": "2023-05-08T14:41:05.000000Z",
+                    "updated_at": "2023-05-08T14:41:05.000000Z"
+                },
+                "product_variant_two": null,
+                "product_variant_three": null,
+                "price": 0,
+                "stock": 0,
+                "product_id": 2,
+                "created_at": "2023-05-08T14:41:05.000000Z",
+                "updated_at": "2023-05-08T14:41:05.000000Z"
+            }
+        ]
+    }
+]
