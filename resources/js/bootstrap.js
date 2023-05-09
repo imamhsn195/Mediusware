@@ -17,6 +17,7 @@ try {
 
     $('select').select2({
         theme: 'bootstrap4',
+        placeholder: 'Select an option'
     })
 
 } catch (e) {

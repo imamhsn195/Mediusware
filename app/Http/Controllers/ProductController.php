@@ -16,10 +16,37 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(2);
-        return view('products.index', compact('products'));
+        $variants = Variant::get()->groupBy('description');
+        $products = Product::where(function($products)use($request){
+            if($request->title!=null){
+               return $products->where("title","like","%".$request->title."%");
+            }
+        })
+        ->where(function($products)use($request){
+            if($request->date != null){
+                return $products->whereDate('created_at', $request->date);
+            }
+        })
+        ->where(function($products)use($request){
+            if(!empty($request->variants)){
+                return $products->whereHas('product_variant_prices', function($product_variant_prices)use($request){
+                    return $product_variant_prices
+                    ->whereIn('product_variant_one', $request->variants)
+                    ->orWhereIn('product_variant_two',  $request->variants)
+                    ->orWhereIn('product_variant_three',  $request->variants);
+                });
+            }
+        })
+        ->whereHas('product_variant_prices', function($product_variant_prices)use($request){
+            if($request->price_from !== null && $request->price_to !== null){
+                return $product_variant_prices->whereBetween('price',[ $request->price_from, $request->price_to]);
+            }
+        })
+ 
+        ->paginate();
+        return view('products.index', compact('products', 'variants'));
     }
 
     /**
@@ -66,7 +93,7 @@ class ProductController extends Controller
                 // Store Product Variant
                 foreach ($request->product_variant as $variants) {
                     foreach ($variants["value"] as $variant){
-                        $new_variant = Variant::firstOrCreate(['title' => $variant]);
+                        $new_variant = Variant::firstOrCreate(['title' => $variant, 'description' => $variants['option']]);
                         // Store Product_variant
                         $product_variant = new ProductVariant();
                         $product_variant->product_id = $product->id;
